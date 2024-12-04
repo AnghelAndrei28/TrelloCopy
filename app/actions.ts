@@ -1,6 +1,9 @@
 "use server";
 
+import connectMongo from "@/db/mongoose";
 import client from "@/lib/mongodb";
+import TrelloBoard, {Trelloboard} from "@/model/board";
+import { Types } from "mongoose";
 
 export async function testDatabaseConnection() {
   let isConnected = false;
@@ -16,4 +19,32 @@ export async function testDatabaseConnection() {
     console.error(e);
     return isConnected;
   }
+}
+
+export async function createBoard(title: string) {
+  await connectMongo();
+  const newBoard = new TrelloBoard({
+    _id: new Types.ObjectId(),
+    title,
+    color: "white",
+  });
+  await newBoard.save();
+  return newBoard;
+}
+
+export async function getBoards() {
+  await connectMongo();
+  const boards = await TrelloBoard.find({});
+  return boards;
+}
+
+export async function deleteBoard(id: string) {
+  await connectMongo();
+  await TrelloBoard.findByIdAndDelete(id);
+}
+
+export async function editBoard(id: string, title: string) {
+  await connectMongo();
+  const updatedBoard = await TrelloBoard.findByIdAndUpdate(id, { title }, { new: true });
+  return updatedBoard;
 }
