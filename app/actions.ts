@@ -94,3 +94,20 @@ export async function addCard(queueId: string, title: string, description: strin
   await newCard.save();
   return newCard;
 }
+
+export async function updateCard(id: string, title: string, description: string) {
+  await connectMongo();
+  const updatedCard = await CardQueue.findByIdAndUpdate(id, { title, description }, { new: true });
+  return updatedCard;
+}
+
+export async function deleteCard(id: string) {
+  await connectMongo();
+  await CardQueue.findByIdAndDelete(id);
+}
+
+export async function getBoardById(id: string) {
+  await connectMongo();
+  const board = await TrelloBoard.findById(id);
+  return board;
+}

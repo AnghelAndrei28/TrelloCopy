@@ -20,8 +20,11 @@ const CreateCardModal: React.FC<CreateCardModalProps> = ({ isOpen, onClose, onCr
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
-      <div className="bg-white p-6 rounded-lg shadow-lg">
+    <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50" onClick={onClose}>
+      <div className="bg-white p-6 rounded-lg shadow-lg relative z-60" onClick={(e) => e.stopPropagation()}>
+        <button className="absolute top-2 right-2 text-gray-500 hover:text-gray-700" onClick={onClose}>
+          &times;
+        </button>
         <h2 className="text-xl font-semibold mb-4">Create New Card</h2>
         <input
           type="text"
