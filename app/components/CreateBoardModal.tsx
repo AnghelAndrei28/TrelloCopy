@@ -25,10 +25,10 @@ const CreateBoardModal: React.FC<CreateBoardModalProps> = ({ isOpen, onClose, on
   return (
     <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
       <div className="bg-white p-6 rounded-lg shadow-lg">
-        <h2 className="text-xl font-semibold mb-4">Create New Board</h2>
+        <h2 className="text-xl font-semibold mb-4 text-black">Create New Board</h2>
         <input
           type="text"
-          className="border border-gray-300 rounded-lg p-2 w-full mb-4"
+          className="border border-gray-300 rounded-lg p-2 w-full mb-4 text-black"
           placeholder="Board Title"
           value={title}
           onChange={(e) => setTitle(e.target.value)}
