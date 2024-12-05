@@ -1,3 +1,4 @@
+import posthog from 'posthog-js';
 import React, { useState } from 'react';
 
 interface CardDetailsProps {
@@ -12,6 +13,10 @@ const CardDetails: React.FC<CardDetailsProps> = ({ isOpen, onClose, card, onUpda
   const [isEditing, setIsEditing] = useState(false);
   const [title, setTitle] = useState(card.title);
   const [description, setDescription] = useState(card.description);
+
+  React.useEffect(() => {
+    posthog.capture('CardDetailsModal');
+  }, []);
 
   const handleSave = () => {
     onUpdate(card.id, title, description);

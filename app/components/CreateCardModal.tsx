@@ -1,3 +1,4 @@
+import posthog from 'posthog-js';
 import React, { useState } from 'react';
 
 interface CreateCardModalProps {
@@ -9,6 +10,10 @@ interface CreateCardModalProps {
 const CreateCardModal: React.FC<CreateCardModalProps> = ({ isOpen, onClose, onCreate }) => {
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
+
+  React.useEffect(() => {
+    posthog.capture('CreateCardModal');
+  }, []);
 
   const handleCreate = () => {
     onCreate(title, description);

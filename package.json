@@ -10,9 +10,11 @@
     "mongodb": "^6.5.0",
     "mongoose": "^8.8.2",
     "next": "latest",
+    "posthog-js": "^1.194.3",
     "react": "^18",
     "react-dom": "^18",
-    "react-icons": "^5.4.0"
+    "react-icons": "^5.4.0",
+    "uuid": "^11.0.3"
   },
   "devDependencies": {
     "@types/node": "^20",

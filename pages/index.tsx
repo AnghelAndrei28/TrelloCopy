@@ -2,6 +2,8 @@ import CreateBoardModal from "@/app/components/CreateBoardModal";
 import TrelloGrid from "@/app/components/TrelloGrid";
 import React, { useEffect, useState } from "react";
 import { Trelloboard } from "@/model/board";
+import posthog from "posthog-js";
+import { v4 as uuidv4 } from 'uuid';
 
 export default function Home() {
   const [boards, setBoards] = useState<Trelloboard[]>([]);
@@ -23,6 +25,9 @@ export default function Home() {
 
   useEffect(() => {
     fetchBoards();
+    const id = uuidv4();
+    posthog.identify(id, { id });
+    posthog.capture('LandingPage');
   }, []);
 
   const handleCreateBoard = async (title: string) => {
@@ -49,7 +54,10 @@ export default function Home() {
     <div className="min-h-screen bg-gradient-to-r from-blue-400 to-purple-500 p-6">
       <button
         className="bg-blue-500 text-white px-4 py-2 rounded-lg mb-4"
-        onClick={() => setIsModalOpen(true)}
+        onClick={() => {
+          setIsModalOpen(true)
+          posthog.capture('my event', { property: 'value' })
+        }}
       >
         Create New Board
       </button>

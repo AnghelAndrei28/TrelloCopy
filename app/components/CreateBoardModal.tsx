@@ -1,3 +1,4 @@
+import posthog from "posthog-js";
 import React, { useState } from "react";
 
 interface CreateBoardModalProps {
@@ -8,6 +9,10 @@ interface CreateBoardModalProps {
 
 const CreateBoardModal: React.FC<CreateBoardModalProps> = ({ isOpen, onClose, onCreate }) => {
   const [title, setTitle] = useState("");
+
+  React.useEffect(() => {
+    posthog.capture('CreateBoardModal');
+  }, []);
 
   const handleCreate = () => {
     onCreate(title);

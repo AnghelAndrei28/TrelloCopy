@@ -1,6 +1,7 @@
 import { useRouter } from 'next/router';
 import React, { useEffect, useState } from 'react';
 import BoardQueueComponent from '@/app/components/BoardQueueComponent';
+import posthog from 'posthog-js';
 
 const BoardPage: React.FC = () => {
   const router = useRouter();
@@ -44,6 +45,10 @@ const BoardPage: React.FC = () => {
       fetchQueues();
     }
   }, [id]);
+
+  useEffect(() => {
+    posthog.capture('BoardPage');
+  }, []);
 
   const handleAddQueue = async () => {
     if (newQueueTitle.trim()) {
