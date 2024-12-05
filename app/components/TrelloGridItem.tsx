@@ -19,7 +19,7 @@ const TrelloGridItem: React.FC<TrelloGridItemProps> = ({ title, onDelete, onEdit
           <FaTrash />
         </button>
       </div>
-      <div className="text-left text-xl font-semibold">
+      <div className="text-left text-xl font-semibold text-black">
         {title}
       </div>
     </div>

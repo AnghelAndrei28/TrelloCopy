@@ -77,8 +77,8 @@ const BoardPage: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-white p-6">
-      <h1 className="text-2xl font-bold mb-6">{boardName}</h1>
+    <div className="min-h-screen bg-gradient-to-r from-blue-400 to-purple-500 p-6">
+      <h1 className="text-2xl font-bold mb-6 text-black">{boardName}</h1>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
         {queues.map((queue) => (
           <BoardQueueComponent
@@ -95,7 +95,7 @@ const BoardPage: React.FC = () => {
       <div className="mt-4 flex items-center space-x-2">
         <input
           type="text"
-          className="border border-gray-300 rounded-lg p-2 w-64"
+          className="border border-gray-300 rounded-lg p-2 w-64 text-black"
           placeholder="Add a list..."
           value={newQueueTitle}
           onChange={(e) => setNewQueueTitle(e.target.value)}

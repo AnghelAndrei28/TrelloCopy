@@ -40,12 +40,12 @@ const CardDetails: React.FC<CardDetailsProps> = ({ isOpen, onClose, card, onUpda
           <>
             <input
               type="text"
-              className="border border-gray-300 rounded-lg p-2 w-full mb-4"
+              className="border border-gray-300 rounded-lg p-2 w-full mb-4 text-black"
               value={title}
               onChange={(e) => setTitle(e.target.value)}
             />
             <textarea
-              className="border border-gray-300 rounded-lg p-2 w-full mb-4"
+              className="border border-gray-300 rounded-lg p-2 w-full mb-4 text-black"
               value={description}
               onChange={(e) => setDescription(e.target.value)}
             />
@@ -66,8 +66,8 @@ const CardDetails: React.FC<CardDetailsProps> = ({ isOpen, onClose, card, onUpda
           </>
         ) : (
           <>
-            <h2 className="text-xl font-semibold mb-4">{title}</h2>
-            <p className="mb-4">{description}</p>
+            <h2 className="text-xl font-semibold mb-4 text-black">{title}</h2>
+            <p className="mb-4 text-black">{description}</p>
             <div className="flex justify-end">
               <button
                 className="bg-gray-300 text-gray-700 px-4 py-2 rounded-lg mr-2"

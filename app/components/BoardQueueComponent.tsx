@@ -143,16 +143,16 @@ const BoardQueueComponent: React.FC<BoardQueueComponentProps> = ({ id, title, on
   return (
     <div className="bg-white border border-gray-300 rounded-lg p-4 mb-4 relative">
       <div className="flex justify-between items-center mb-4">
-        <h2 className="text-xl font-semibold">{title}</h2>
+        <h2 className="text-xl font-semibold text-black">{title}</h2>
         <button onClick={toggleMenu} className="text-gray-500 hover:text-gray-700">
           ...
         </button>
         {isMenuOpen && (
           <div className="absolute right-4 top-12 bg-white border border-gray-300 rounded-lg shadow-lg">
-            <button onClick={() => handleEditQueue(prompt('Enter new title') || title)} className="block px-4 py-2 text-left w-full hover:bg-gray-100">
+            <button onClick={() => handleEditQueue(prompt('Enter new title') || title)} className="block px-4 py-2 text-left w-full hover:bg-gray-100 text-black">
               Edit
             </button>
-            <button onClick={handleDeleteQueue} className="block px-4 py-2 text-left w-full hover:bg-gray-100">
+            <button onClick={handleDeleteQueue} className="block px-4 py-2 text-left w-full hover:bg-gray-100 text-black">
               Delete
             </button>
           </div>
