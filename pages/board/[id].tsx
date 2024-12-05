@@ -44,11 +44,8 @@ const BoardPage: React.FC = () => {
       fetchBoardDetails();
       fetchQueues();
     }
-  }, [id]);
-
-  useEffect(() => {
     posthog.capture('BoardPage');
-  }, []);
+  }, [id]);
 
   const handleAddQueue = async () => {
     if (newQueueTitle.trim()) {
